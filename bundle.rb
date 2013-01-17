@@ -93,14 +93,14 @@ end
 
 snippet "Smarty for" do |s|
   s.trigger = "for"
-  s.expansion = "{for $var=$start to $end}
+  s.expansion = "{for ${1:var}=${2:start} to ${3:end}}
 
 {/for}"
 end
 
 snippet "Smarty forelse" do |s|
   s.trigger = "forelse"
-  s.expansion = "{for $var=$start to $end}
+  s.expansion = "{for ${1:var}=${2:start} to ${3:end}}
 
 {forelse}
 
@@ -109,7 +109,7 @@ end
 
 snippet "Smarty for (step)" do |s|
   s.trigger = "for"
-  s.expansion = "{for $var=$start to $end step $step}
+  s.expansion = "{for ${1:var}=${2:start} to ${3:end} step ${4:step}}
 
 {/for}"
 end
@@ -119,4 +119,27 @@ snippet "Smarty foreach" do |s|
   s.expansion = "{foreach ${1:arrayvar} as ${2:keyvar}=>${3:itemvar}}
 
 {/foreach}"
+end
+
+snippet "Smarty foreachelse" do |s|
+  s.trigger = "foreachelse"
+  s.expansion = "{foreach ${1:arrayvar} as ${2:keyvar}=>${3:itemvar}}
+
+{foreachelse}
+
+{/foreach}"
+end
+
+snippet "Smarty function" do |s|
+  s.trigger = "function"
+  s.expansion = "{function name=${1:name}}
+
+{/function}"
+end
+
+snippet "Smarty function (short-hand)" do |s|
+  s.trigger = "function"
+  s.expansion = "{function ${1:name}}
+
+{/function}"
 end
